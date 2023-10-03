@@ -5,7 +5,7 @@ import { getName } from "@/utils/getData/getName";
 const Homepage = () => {
   const nameData = getName();
 
-  return nameData ? <p>{nameData?.name}</p> : <p>loading..</p>;
+  return nameData?.map(({ id, name }) => <p key={id}>{name}</p>);
 };
 
 export default Homepage;
