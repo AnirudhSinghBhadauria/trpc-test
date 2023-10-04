@@ -1,7 +1,7 @@
 import { trpc } from "@/app/_trpc/client";
 
 export const getName = () => {
-  const names = trpc.getTodo.useQuery();
+  const namesData = trpc.getTodo.useQuery();
 
-  return names.data;
+  return namesData.data;
 };

@@ -1,11 +1,13 @@
-"use client";
-
 import { getName } from "@/utils/getData/getName";
+import Name from "./components/name";
+import NameForm from "./components/name-form";
 
 const Homepage = () => {
-  const nameData = getName();
-
-  return nameData?.map(({ id, name }) => <p key={id}>{name}</p>);
+  return (
+    <div>
+      <NameForm />
+    </div>
+  );
 };
 
 export default Homepage;
