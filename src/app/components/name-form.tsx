@@ -1,12 +1,22 @@
 "use client";
 
 import { submitFormData } from "@/actions/form-data";
-import React from "react";
+import React, { useRef } from "react";
 import { trpc } from "../_trpc/client";
-import { getName } from "@/utils/getData/getName";
+import { trpcOnServer } from "../_trpc/server";
 
-const NameForm = () => {
-  const names = trpc.getTodo.useQuery();
+const NameForm = ({
+  nameData,
+}: {
+  nameData: Awaited<ReturnType<(typeof trpcOnServer)["getTodo"]>>;
+}) => {
+  const ref = useRef<HTMLFormElement>(null);
+
+  const names = trpc.getTodo.useQuery(undefined, {
+    initialData: nameData,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
 
   const nameMutation = trpc.setName.useMutation({
     onSettled() {
@@ -20,9 +30,11 @@ const NameForm = () => {
         <p>{name}</p>
       ))}
       <form
+        ref={ref}
         action={async (formData) => {
-          const name = submitFormData(formData);
+          const name = formData.get("name") as string;
 
+          ref.current!.reset();
           nameMutation.mutate(name);
         }}
       >

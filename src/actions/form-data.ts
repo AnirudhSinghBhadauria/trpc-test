@@ -1,2 +1,2 @@
 export const submitFormData = (formData: FormData) =>
-  formData.get("name")!.toString();
+  formData.get("name") as string;

@@ -1,11 +1,14 @@
-import { getName } from "@/utils/getData/getName";
-import Name from "./components/name";
 import NameForm from "./components/name-form";
+import { trpcOnServer } from "./_trpc/server";
 
-const Homepage = () => {
+export const dynamic = "force-dynamic";
+
+const Homepage = async () => {
+  const getNames = await trpcOnServer.getTodo();
+
   return (
     <div>
-      <NameForm />
+      <NameForm nameData={getNames} />
     </div>
   );
 };
