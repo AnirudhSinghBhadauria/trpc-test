@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { publicProcedure, router } from "./trpc";
 import z from "zod";
+import { mergeRouters } from "@trpc/server";
 
 const prisma = new PrismaClient();
 
