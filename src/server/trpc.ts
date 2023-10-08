@@ -1,4 +1,3 @@
-import { trpc } from "@/app/_trpc/client";
 import { Context } from "@/app/_trpc/context";
 import { TRPCError, initTRPC } from "@trpc/server";
 
@@ -18,3 +17,4 @@ export const router = t.router;
 export const publicProcedure = t.procedure;
 
 export const adminProcedure = publicProcedure.use(isAuth);
+

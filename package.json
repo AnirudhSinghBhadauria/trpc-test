@@ -16,7 +16,7 @@
     "@trpc/react-query": "^10.38.5",
     "@trpc/server": "^10.38.5",
     "init": "^0.1.2",
-    "next": "latest",
+    "next": "^13.5.4",
     "prisma": "^5.3.1",
     "react": "latest",
     "react-dom": "latest",
