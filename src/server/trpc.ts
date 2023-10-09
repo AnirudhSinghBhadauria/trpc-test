@@ -11,6 +11,7 @@ const isAuth = t.middleware(({ ctx, next }) => {
   }
 
   return next();
+  
 });
 
 export const router = t.router;
