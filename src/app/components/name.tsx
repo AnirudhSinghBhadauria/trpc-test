@@ -1,6 +1,6 @@
 "use client";
 
-import { getName } from "@/utils/getData/getName";
+import { getName } from "@/lib/getName";
 import React from "react";
 
 const Name = () => {

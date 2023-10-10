@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { trpc } from "../_trpc/client";
 import { trpcOnServer } from "../_trpc/server";
+// import { Input } from "@/components/ui/input";
 
 const NameForm = ({
   nameData,
@@ -37,6 +38,7 @@ const NameForm = ({
           nameMutation.mutate(name);
         }}
       >
+        {/* <Input /> */}
         <input name="name" type="text" />
         <button type="submit">Submit</button>
       </form>
